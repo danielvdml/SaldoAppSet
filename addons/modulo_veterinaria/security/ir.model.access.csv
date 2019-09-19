@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_modulo_veterinaria_modulo_veterinaria,modulo_veterinaria.modulo_veterinaria,model_modulo_veterinaria_modulo_veterinaria,,1,0,0,0

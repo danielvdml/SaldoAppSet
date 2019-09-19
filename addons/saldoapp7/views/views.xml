@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="saldoapp7.list">
+      <field name="name">saldoapp7 list</field>
+      <field name="model">saldoapp7.saldoapp7</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="saldoapp7.action_window">
+      <field name="name">saldoapp7 window</field>
+      <field name="res_model">saldoapp7.saldoapp7</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="saldoapp7.action_server">
+      <field name="name">saldoapp7 server</field>
+      <field name="model_id" ref="model_saldoapp7_saldoapp7"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="saldoapp7" id="saldoapp7.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="saldoapp7.menu_1" parent="saldoapp7.menu_root"/>
+    <menuitem name="Menu 2" id="saldoapp7.menu_2" parent="saldoapp7.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="saldoapp7.menu_1_list" parent="saldoapp7.menu_1"
+              action="saldoapp7.action_window"/>
+    <menuitem name="Server to list" id="saldoapp7" parent="saldoapp7.menu_2"
+              action="saldoapp7.action_server"/>
+    -->
+  </data>
+</odoo>

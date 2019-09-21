@@ -1,16 +1,15 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "saldoapp7",
+    'name': "Saldo APP - Setiembre",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Aplicación que le permitirá a tus usuarios gestionar sus ingresos y egresos""",
 
     'description': """
         Long description of module's purpose
     """,
 
-    'author': "My Company",
+    'author': "Escuela FULLSTACK",
     'website': "http://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing
@@ -27,6 +26,7 @@
         # 'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
+        'data/records_movimiento.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

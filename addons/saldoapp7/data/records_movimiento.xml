@@ -1,0 +1,17 @@
+<odoo>
+    <record id="saldoapp7.movimiento1" model="sa.movimiento">
+        <field name="name">Compra de línea blanca - electrodomestico</field>
+        <field name="monto_total">140</field>
+        <field name="tipo">E</field>
+        <field name="fecha">2019/11/12</field>
+        <field name="moneda">PEN</field>
+    </record>
+    
+    <record id="saldoapp7.movimiento2" model="sa.movimiento">
+        <field name="name">Venta de ERP</field>
+        <field name="monto_total">240</field>
+        <field name="tipo">I</field>
+        <field name="fecha">2019/11/12</field>
+        <field name="moneda">PEN</field>
+    </record>
+</odoo>

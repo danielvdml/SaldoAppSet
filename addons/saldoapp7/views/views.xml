@@ -22,12 +22,19 @@
               <field name="name"/>
               <field name="monto_total"/>
               <field name="tipo" widget="radio"/>
+              <field name="puntos"/>
             </group>
             <group>
               <field name="fecha"/>
               <field name="moneda"/>
               <field name="categoria_id" domain="[['tipo','=',tipo]]" widget="radio"/>
             </group>
+          </group>
+          <group string="Adicional">
+            <field name="concepto" string="Concepto 123"/>
+            <field name="comprobante" string="Comprobante 123" 
+                    widget="image" 
+                    t-options="{'class':'img img-circle','style':'width:100px'}"/>
           </group>
         </sheet>
       </form>
@@ -47,6 +54,19 @@
         <field name="fecha"/>
         <field name="moneda"/>
         <field name="categoria_id"/>
+      </tree>
+    </field>
+  </record>
+
+  <!--VISTA LISTA DE CATEGORIA-->
+  <record id="saldoapp7.view_tree_sa_categoria" model="ir.ui.view">
+    <field name="name">view.tree.sa.categoria</field>
+    <field name="model">sa.categoria</field>
+    <field name="priority">1</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="nombre"/>
+        <field name="puntos"/>
       </tree>
     </field>
   </record>

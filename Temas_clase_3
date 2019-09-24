@@ -1,0 +1,19 @@
+Clase 3: Modelos y vistas Avanzadas
+Modelos:
+=======
+-> Relación entre modelos (Manyone Many2many y One2mny)
+-> Related, Html, Binary,
+-> Atributos: index, readonly, precisión decimal
+
+Vistas (ir.ui.view)
+=======
+-> tree:  decoration
+-> field: t-atts, invisible, readonly, required | widget='image' ,'statusbar', 'selection', 'radio'
+-> Tabs: notebook and page
+
+
+Acciones de Vistas (ir.actions.act_window)
+==================
+-> context (parámetros por defecto)
+-> domain
+-> habilitar más de una vista (Form,Tree,search,filter,kanban) [calendear,pivot]

@@ -1,0 +1,37 @@
+<odoo>
+    <!--EGRESOS-->
+    <record id="saldoapp7.categoria_casa" model="sa.categoria">
+        <field name="tipo">E</field>
+        <field name="nombre">Casa</field>
+    </record>
+    <record id="saldoapp7.categoria_carro" model="sa.categoria">
+        <field name="tipo">E</field>
+        <field name="nombre">Carro</field>
+    </record>
+    <record id="saldoapp7.categoria_estudios" model="sa.categoria">
+        <field name="tipo">E</field>
+        <field name="nombre">Estudios</field>
+    </record>
+    <record id="saldoapp7.categoria_ropa" model="sa.categoria">
+        <field name="tipo">E</field>
+        <field name="nombre">Ropa</field>
+    </record>
+    
+    <!--INGRESOS-->
+    <record id="saldoapp7.categoria_utilidades" model="sa.categoria">
+        <field name="tipo">I</field>
+        <field name="nombre">Utilidades</field>
+    </record>
+    <record id="saldoapp7.categoria_sueldo" model="sa.categoria">
+        <field name="tipo">I</field>
+        <field name="nombre">Sueldo</field>
+    </record>
+    <record id="saldoapp7.categoria_freelance" model="sa.categoria">
+        <field name="tipo">I</field>
+        <field name="nombre">Freelance</field>
+    </record>
+    <record id="saldoapp7.categoria_premio" model="sa.categoria">
+        <field name="tipo">I</field>
+        <field name="nombre">Premio</field>
+    </record>
+</odoo>

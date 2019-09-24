@@ -20,10 +20,11 @@ class Movimiento(models.Model):
     name = fields.Char(string="Concepto",size=150,index = True)
     #monto = fields.Char("Monto")
     monto_total = fields.Float(string = "Monto")
-    tipo = fields.Selection(string="Tipo",selection=[('I','Ingreso'),("E","Egreso")])
+    tipo = fields.Selection(string="Tipo",selection=[('I','Ingreso'),("E","Egreso")],default="I",required=True)
     fecha = fields.Date(string="Fecha de Operción")
     moneda = fields.Selection(string="Moneda",selection=[("PEN","Soles"),("USD","Dólares")])
 
+    categoria_id = fields.Many2one("sa.categoria")
 
 class Categoria(models.Model):
     _name = "sa.categoria"

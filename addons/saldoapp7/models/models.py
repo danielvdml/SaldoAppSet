@@ -17,7 +17,7 @@ class Movimiento(models.Model):
     _name = "sa.movimiento" # Nombre de la base de datos sa_movimiento (SQL)
     _description = "Movimiento" # Nombre del modelo en Odoo 'Movimiento' 
 
-    name = fields.Char(string="Concepto",size=150,index = True)
+    name = fields.Char(string="Nombre",size=150,index = True)
     #monto = fields.Char("Monto")
     monto_total = fields.Float(string = "Monto")
     tipo = fields.Selection(string="Tipo",selection=[('I','Ingreso'),("E","Egreso")],default="I",required=True)

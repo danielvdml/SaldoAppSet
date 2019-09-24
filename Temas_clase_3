@@ -8,7 +8,7 @@ Modelos:
 Vistas (ir.ui.view)
 =======
 -> tree:  decoration
--> field: t-atts, invisible, readonly, required | widget='image' ,'statusbar', 'selection', 'radio'
+-> field: attrs, invisible, readonly, required | widget='image' ,'statusbar', 'selection', 'radio'
 -> Tabs: notebook and page
 
 

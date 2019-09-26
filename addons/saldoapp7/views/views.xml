@@ -34,6 +34,7 @@
             </page>
             <page string="Adicionales">
                 <group string="Adicional">
+                  <field name="partner_id"/>
                   <!--
                   <field name="comprobante" string="Comprobante 123" 
                           widget="image" 
@@ -123,7 +124,7 @@
   </record>
 
   <!--ACCIÓN DE VENTANA: INGRESOS-->
-   <record id="saldoapp7.action_view_sa_movimimento_ingresos" model="ir.actions.act_window">
+  <record id="saldoapp7.action_view_sa_movimimento_ingresos" model="ir.actions.act_window">
     <field name="name">Ingresos</field>
     <field name="res_model">sa.movimiento</field>
     <field name="view_mode">tree,form</field>
@@ -177,4 +178,19 @@
     <field name="parent_id" ref="saldoapp7.menu_saldoapp"/>
   </record>
   
+  <!--ACCIÓN SERVIDOR-->
+  <!--Acción de servidor: ir.actions.server-->
+  <record id="saldoapp7.action_server_perfil" model="ir.actions.server">
+      <field name="name">Mi Perfil</field>
+      <field name="model_id" ref="base.model_res_partner" /><!--Relación Many2one-->
+      <field name="state">code</field>
+      <field name="code">action = model.accion_mi_perfil()</field>
+  </record>
+
+    <record id="saldoapp7.menu_mi_perfil" model="ir.ui.menu">
+          <field name="name">Mi Perfil</field>
+          <field name="parent_id" ref="saldoapp7.menu_saldoapp"/>
+          <field name="action" ref="saldoapp7.action_server_perfil"></field>
+    </record>
+    
 </odoo>

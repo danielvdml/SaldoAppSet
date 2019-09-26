@@ -1,0 +1,37 @@
+<odoo>
+
+    <record id="saldoapp7.view_res_partner_form" model="ir.ui.view">
+        <field name="name">view.res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='function']" position="before">
+                <field name="fecha_cumple"/>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Mis Comprobants">
+                    <group>
+                        <field name="movimiento_ids"/>
+                        <field name="total_ingresos"/>
+                        <field name="total_egresos"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+    
+    
+    
+
+
+   
+    <!--
+        model.action_mi_perfil() es una función en python, que permite
+        lanzar una vista de tipo formulario selecionando solo al usuario.
+    -->
+
+    <!--MENÚ-->
+    
+    
+
+</odoo>

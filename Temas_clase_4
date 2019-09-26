@@ -1,0 +1,43 @@
+Clase 4: Modelo, vistas y acciones avanzado II
+==============================================
+
+Herencia
+========
+Extender funcionalidades a modulos ya existentes (res.partner)
+-> vistas
+    => Modificar la vistar del Usuario que odoo tiene por defecto (extender)
+    => Perfil como Menú
+-> Modelos
+Campos: One2many y Many2many
+Crear más de una forma de vistas
+-> Mismo modelo, con diferentes vistas
+-> Modelo: Movimiento => Vista 1 Formulario (Ingreso), Vista 2 Formulario(Egreso)
+
+=> Definición de funciones para res.partner 
+-> Calcular el monto total Ingreso
+-> Calcular el monto toal de egreso
+
+=> Vistas: Trabajando con Botones (Asociados a métodos de un objeto)
+
+
+Decoradores
+===========
+@api.onchange
+
+@api.depends
+
+@api.multi
+
+@api.constrains
+
+
+
+Tipos de xpath según ubicación
+=============================
+expr: etiqueta de referencia para ubicar una nueva etiqueta
+
+position:
+    before: antes de la etiqueta de referencia
+    after: despues de la etiqueta de referencia
+    inside: dentro de la etiqueta de referencia
+    replace: reemplazo de la etiqueta de referencia

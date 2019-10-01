@@ -41,6 +41,12 @@ class ResPartner(models.Model):
             record.total_ingresos  = sum([mov.monto_total for mov in movs if mov.tipo=="I"])
             
 
+    def imprimir_reporte_movimientos(self):
+        report_obj = self.env.ref("saldoapp7.sa_report_movimiento_partner")
+        partner_id = self.id
+        return report_obj.report_action([partner_id])
+
+
 class ResUsers(models.Model):
     _inherit = "res.users"
 

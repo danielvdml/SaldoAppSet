@@ -29,6 +29,8 @@
         'views/templates.xml',
         'data/records_movimiento.xml',
         'data/categoria.xml',
+        'report/report_templates.xml',
+        'report/paperformat.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

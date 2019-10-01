@@ -1,0 +1,49 @@
+<odoo>
+    <!--la etiqueta report genera una acción de tipo reporte, que al activarla se visualizará en la impresión-->
+    <report id="saldoapp7.sa_report_movimiento_partner" 
+            model="res.partner" 
+            string="Mis Movimientos" 
+            report_type="qweb-pdf" 
+            name="saldoapp7.report_movimiento"/>
+
+    <report id="saldoapp7.sa_report_movimiento_user" 
+            model="res.users" 
+            string="Mis Movimientos" 
+            report_type="qweb-pdf" 
+            name="saldoapp7.report_movimiento"/>
+
+    <template id="saldoapp7.report_movimiento">
+        <t t-call="web.html_container"><!--Js y css compilado-->
+            <t t-foreach="docs" t-as="o"> <!--Iterador de elementos-->
+                <!--Hear y Footer del documento-->
+                <t t-call="web.external_layout">    
+                    <div class="page"> <!--- Esto es el cuerpo-->
+                        <h1>Usuario: <b><t t-esc="o.display_name"/></b></h1>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Descripción</th>
+                                    <th>Fecha</th>
+                                    <th>Monto</th>
+                                    <th>Moneda</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="o.movimiento_ids" t-as="mov">
+                                    <td><span t-field="mov.name"/></td>
+                                    <td><span t-field="mov.fecha"/></td>
+                                    <td><span t-field="mov.monto_total"/></td>
+                                    <td><span t-field="mov.moneda"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h5>Total Ingresos: </h5><span><t t-esc="get_ingresos(o.movimiento_ids)"/></span>
+                        <h5>Total Ingreso en Soles: </h5><span><t t-esc="get_ingresos_soles(o.id)"/></span>
+                        <h5>Total Egresos: </h5><span><t t-esc="get_egrespos(o.movimiento_ids)"/></span>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
+

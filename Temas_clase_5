@@ -1,0 +1,7 @@
+Clase 5
+=======
+-> Formatos de Papel (A4 ....) -> Medidas personalizadas
+-> Reporte en PDF (Qweb para diseñar el pdf) (View)
+-> Acción de reporte en pdf (Action)
+-> Botón que llame a descargar el reporte
+-> Wizard para generar el reporte ( Filtros por por tipo de mov y por fecha)

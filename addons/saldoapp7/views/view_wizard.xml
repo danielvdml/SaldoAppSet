@@ -1,0 +1,31 @@
+<odoo>
+
+    <record id="saldoapp7.wizard_form" model="ir.ui.view">
+        <field name="name">saldoapp7.wizard.form</field>
+        <field name="model">sa.wizard.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="fecha_inicio"/>
+                    <field name="fecha_fin"/>
+                </group>
+                <footer>
+                    <button type="object" name="imprimir_reporte" string="Imprimir Reporte"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="saldoapp7.action_server_wizard_report" model="ir.actions.server">
+        <field name="name">Reporte de Movimientos</field>
+        <field name="model_id" ref="saldoapp7.model_sa_movimiento" />
+        <field name="state">code</field>
+        <field name="code">result = model.action_server_view_wizard()</field>
+    </record>
+
+     <record id="saldoapp7.menu_mis_movimientos" model="ir.ui.menu">
+          <field name="name">Reporte de Movimientos</field>
+          <field name="parent_id" ref="saldoapp7.menu_saldoapp"/>
+          <field name="action" ref="saldoapp7.action_server_wizard_report"></field>
+    </record>
+</odoo>

@@ -1,0 +1,11 @@
+Clase 6: Seguridad
+=======
+
+-> Grupos / Roles(Cliente, Administrador)
+----> Cliente (Crear registros de movimientos)
+----> Administrador (Crear Usuario,visualiza todos los registros y clientes)
+-> Permisos de Accesos
+-> Reglas
+----> Cliente (Solo visualiza sus propios movimientos)
+
+-> Restricción de uso y visualización de campos por perfil

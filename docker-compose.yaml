@@ -11,7 +11,8 @@ services:
       - set-db-data:/var/lib/postgresql/data/pgdata
   odoo:
     container_name: set_odoo_12
-    image: odoo:12
+    image: c_odoo_12
+    build: ./docker
     depends_on:
       - pgsql
     ports:

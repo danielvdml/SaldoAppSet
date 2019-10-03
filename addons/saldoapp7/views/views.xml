@@ -24,7 +24,7 @@
               <field name="fecha"/>
           </group>
           
-          <notebook>
+          <notebook groups="saldoapp7.group_cliente_saldoapp,saldoapp7.group_administrador">
             <page string="Datos Básicos">
               <group>
                   <field name="puntos"/>

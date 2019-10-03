@@ -56,6 +56,17 @@ class Movimiento(models.Model):
                 raise ValidationError("El monto total debe ser menor a un millón")
             
     
+    def action_server_view_wizard(self):
+        wizard_form_id = self.env.ref("saldoapp7.wizard_form").id
+        return {
+            "type":"ir.actions.act_window",     
+            "name":"Reporte de movimientos",
+            "res_model":"sa.wizard.report",
+            "views":[[wizard_form_id,"form"]],
+            "view_mode":"form",
+            "target":"self"
+        }
+
 class Categoria(models.Model):
     _name = "sa.categoria"
     _description = "Categoria"

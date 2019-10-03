@@ -6,6 +6,7 @@ class WizardReportMovimiento(models.TransientModel):
     fecha_inicio = fields.Date("Fecha de inicio",default=fields.Date.today())
     fecha_fin = fields.Date("Fecha fin",default=fields.Date.today())
 
+    """
     def imprimir_reporte(self):
         if self.fecha_inicio and self.fecha_fin:
             domain = [["fecha",">=",self.fecha_inicio],["fecha","<=",self.fecha]]
@@ -18,4 +19,7 @@ class WizardReportMovimiento(models.TransientModel):
             }
             return report_obj.report_action([partner_id],data)
             
-    
+    """
+
+
+        

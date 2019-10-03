@@ -19,18 +19,21 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','sales_team'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
+        'security/res_groups.xml',
         'views/views.xml',
         'views/view_res_partner.xml',
         'views/templates.xml',
+        'views/view_wizard.xml',
         'data/records_movimiento.xml',
         'data/categoria.xml',
         'report/report_templates.xml',
-        'report/paperformat.xml'
+        'report/paperformat.xml',
+        
     ],
     # only loaded in demonstration mode
     'demo': [

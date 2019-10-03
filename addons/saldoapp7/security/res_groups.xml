@@ -1,0 +1,75 @@
+<odoo>
+    <record id="saldoapp7.category_saldoapp" model="ir.module.category">
+        <field name="name">Saldo APP</field>
+    </record>
+    
+    <!--GRUPO O ROL ADMINISTRADOR-->
+    <record id="saldoapp7.group_administrador" model="res.groups">
+        <field name="name">Administrador</field>
+        <field name="category_id" ref="saldoapp7.category_saldoapp"/>
+        <field name="implied_ids" eval="[(4, ref('sales_team.group_sale_manager'))]"/>
+    </record>
+    
+    <record id="saldoapp7.access_model_sa_movimiento_administrador" model="ir.model.access">
+        <field name="name">access.model.sa.movimiento_administrador</field>
+        <field name="model_id" ref="saldoapp7.model_sa_movimiento"/>
+        <field name="group_id" ref="saldoapp7.group_administrador"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_write" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+
+    <record id="saldoapp7.access_model_sa_categoria_administrador" model="ir.model.access">
+        <field name="name">access.model.sa.categoria_administrador</field>
+        <field name="model_id" ref="saldoapp7.model_sa_categoria"/>
+        <field name="group_id" ref="saldoapp7.group_administrador"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_write" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+
+    <!--CLIENTE SALDOAPP-->
+    <record id="saldoapp7.group_cliente_saldoapp" model="res.groups">
+        <field name="name">Cliente SaldoApp</field>
+        <field name="category_id" ref="saldoapp7.category_saldoapp"/>
+    </record>
+
+    <record id="saldoapp7.access_model_sa_movimiento_usuario" model="ir.model.access">
+        <field name="name">access.model.sa.movimiento.usuario</field>
+        <field name="model_id" ref="saldoapp7.model_sa_movimiento"/>
+        <field name="group_id" ref="saldoapp7.group_cliente_saldoapp"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+    </record>
+
+
+    <record id="saldoapp7.access_model_sa_categoria_usuario" model="ir.model.access">
+        <field name="name">access.model.sa.categoria_usuario</field>
+        <field name="model_id" ref="saldoapp7.model_sa_categoria"/>
+        <field name="group_id" ref="saldoapp7.group_cliente_saldoapp"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+
+    
+    <!--REGLAS-->
+
+    <record id="saldoapp7.regla_movimiento" model="ir.rule">
+        <field name="name">Solo mostrar movimientos propios</field>
+        <field name="model_id" ref="saldoapp7.model_sa_movimiento"/>
+        <field name="domain_force">[['create_uid','=',user.id]]</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+        <field name="groups" eval="[(4,ref('saldoapp7.group_cliente_saldoapp'))]"/>
+    </record>
+
+    
+</odoo>

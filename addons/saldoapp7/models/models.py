@@ -67,6 +67,40 @@ class Movimiento(models.Model):
             "target":"self"
         }
 
+    def saludo(self,nombre,apellido="*****"):
+        return "Hola Mundo | "+nombre+" | "+apellido
+
+    def actualizar_movimientos(self,movs):
+        result = []
+        for mov in movs:
+            msg_error = []
+            mov_id = mov["id"]
+            
+            v = False if type(mov_id) == int else "El id del movimiento debe ser entero"
+            if v:
+                msg_error.append(v)
+
+            mov_obj = False
+            try:
+                mov_obj = self.env["sa.movimiento"].search([["id","=",mov_id]])
+            except Exception as e:
+                msg_error.append(e)
+                self.env.cr.commit()
+
+            if mov_obj:
+                v = False if mov_obj.exists() else "El registro no existe o no tiene acceso a este"
+                if v:
+                    msg_error.append(v)
+            
+                res = mov_obj.write(mov["vals"])
+
+            if len(msg_error):
+                result.append({"id":mov["id"],"error":msg_error})
+            else:
+                result.append({"id":mov["id"],"result":"Se actualizo correctamente"})
+            
+        return result
+
 class Categoria(models.Model):
     _name = "sa.categoria"
     _description = "Categoria"

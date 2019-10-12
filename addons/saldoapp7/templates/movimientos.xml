@@ -1,0 +1,122 @@
+<odoo>
+    <template id="saldoapp7.view_qweb_movimientos" name="Movimientos">
+        <t t-call="website.layout">
+            <div class="container">>
+                <div class="col-xs-8 col-xs-offset-4">
+                    <h1><t t-esc="usuario"/></h1>
+                </div>
+                <div class="col-xs-8 col-xs-offset-4">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nombre del Movimiento</th>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Monto</th>
+                                <th scope="col">Tipo</th>
+                                <th>Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="row_movimientos">
+                            <t t-foreach ="movimientos" t-as="mov" >
+                                <tr t-att-id="mov.id" class="row_movimiento">
+                                    <td><t t-esc="mov.name"/></td>
+                                    <td><t t-esc="mov.fecha"/></td>
+                                    <td><t t-esc="mov.monto_total"/></td>
+                                    <td>
+                                        <t t-if="mov.tipo == 'I'">
+                                            Ingreso
+                                        </t>
+                                        <t t-if="mov.tipo == 'E'">
+                                            Egreso
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <button t-att-id="mov.id" class="btn_eliminar">Eliminar</button>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+
+                    </table>
+
+                        <div>
+                            <div class="form-group">
+                                <label for="concepto">Concepto</label>
+                                <input type="text" class="form-control" id="name"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="tipo">Tipo</label>
+                                <select class="form-control" id="tipo">
+                                    <option value="I">Ingreso</option>
+                                    <option value="E">Egreso</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="concepto">Monto</label>
+                                <input type="text" class="form-control" id="monto_total"/>
+                            </div>
+                            <button class="btn_nuevo_movimiento">Crear</button>
+                        </div>
+
+
+
+                        <script>
+                            $(".btn_nuevo_movimiento").click(function(){
+                                console.log("btn_nuevo_movimiento")
+                                var monto_total = $("#monto_total").val()
+                                var name = $("#name").val()
+                                var tipo = $("#tipo").val()
+                                var data = {
+                                    "jsonrpc":"2.0",
+                                    "method":"call",
+                                    "params":{
+                                        "method":"create",
+                                        "model":"sa.movimiento",
+                                        "args":[[],{name:name,tipo:tipo,monto_total:monto_total}],
+                                        "kwargs":{}
+                                    }
+                                }
+
+                                $.ajax({
+                                    type: "POST",
+                                    url: "http://localhost:8855/web/dataset/call_kw",
+                                    data: JSON.stringify(data),
+                                    contentType: 'application/json',
+                                    success: function(response){
+                                        console.log(response)
+                                    },   
+                                    dataType: "json"
+                                });
+                            })
+
+                            $(".btn_eliminar").click(function(){
+                                var id= $(this).attr("id")
+                                $(".row_movimiento#"+id).empty()
+                                var data = {
+                                    "jsonrpc":"2.0",
+                                    "method":"call",
+                                    "params":{
+                                        "method":"unlink",
+                                        "model":"sa.movimiento",
+                                        "args":[[id]],
+                                        "kwargs":{}
+                                    }
+                                }
+                                
+                               $.ajax({
+                                    type: "POST",
+                                    url: "http://localhost:8855/web/dataset/call_kw",
+                                    data: JSON.stringify(data),
+                                    contentType: 'application/json',
+                                    success: function(response){
+                                        console.log(response)
+                                    },   
+                                    dataType: "json"
+                                });
+                            })
+                        </script>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

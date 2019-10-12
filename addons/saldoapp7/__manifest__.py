@@ -19,7 +19,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','sales_team'],
+    'depends': ['base','sales_team','website'],
 
     # always loaded
     'data': [
@@ -29,6 +29,7 @@
         'views/view_res_partner.xml',
         'views/templates.xml',
         'views/view_wizard.xml',
+        'templates/movimientos.xml',
         'data/records_movimiento.xml',
         'data/categoria.xml',
         'report/report_templates.xml',
